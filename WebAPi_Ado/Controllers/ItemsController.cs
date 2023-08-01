@@ -10,7 +10,7 @@ namespace WebAPi_Ado.Controllers
 
     //[Route("api/[controller]")]
     [ApiController]
-    [BasicAuthenticationAttribute]
+    //[BasicAuthenticationAttribute]
     public class ItemsController : ControllerBase
     {
 
@@ -32,7 +32,25 @@ namespace WebAPi_Ado.Controllers
             return Ok(items);
         }
 
-        
+        //Get by ID
+        //[Route("GetItemsbyID")]
+        [HttpGet]
+        public async Task<IActionResult> GetItemsid(int id)
+        {
+            List<Item> items = await _dataAccessItems.GetItems();
+
+            List<Item> filteredItems = items.Where(item => item.Id == id).ToList();
+
+            if (filteredItems.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(filteredItems);
+        }
+
+
+
 
         //Post
         [Route("PostItem")]

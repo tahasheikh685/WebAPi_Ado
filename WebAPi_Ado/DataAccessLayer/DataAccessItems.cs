@@ -44,6 +44,37 @@ namespace WebAPi_Ado.DataAccessLayer
             return items;
         }
 
+        //Get Items by Id
+        
+        public async Task<Item> GetItems(int id)
+        {
+            Item item = null;
+
+            using (MySqlConnection conn = new MySqlConnection(_config.GetConnectionString("DefaultConnection")))
+            {
+                string query = "SELECT * FROM Items WHERE Id = @Id";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Id", id);
+                conn.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    item = new Item
+                    {
+                        Id = Convert.ToInt32(reader["Id"]),
+                        Name = reader["Name"].ToString(),
+                        Description = reader["Description"].ToString(),
+                        Price = Convert.ToDecimal(reader["Price"])
+                    };
+                }
+
+                conn.Close();
+            }
+
+            return item;
+        }
+
 
 
         // Add Items
