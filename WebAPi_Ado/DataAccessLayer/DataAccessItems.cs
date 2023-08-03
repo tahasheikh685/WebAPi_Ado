@@ -106,7 +106,7 @@ namespace WebAPi_Ado.DataAccessLayer
 
         //Update Item
         
-        public async Task<int> UpdateItems(int id, Item updatedItem)
+        public async Task<int> UpdateItems(Item updatedItem)
         {
             try
             {
@@ -115,7 +115,7 @@ namespace WebAPi_Ado.DataAccessLayer
                     string query = "UPDATE Items SET Name = @Name, Description = @Description, Price = @Price WHERE Id = @Id";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
-                    cmd.Parameters.AddWithValue("@Id", id);
+                    cmd.Parameters.AddWithValue("@Id", updatedItem.Id);
                     cmd.Parameters.AddWithValue("@Name", updatedItem.Name);
                     cmd.Parameters.AddWithValue("@Description", updatedItem.Description);
                     cmd.Parameters.AddWithValue("@Price", updatedItem.Price);
