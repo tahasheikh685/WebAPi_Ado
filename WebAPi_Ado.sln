@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPi_Ado", "WebAPi_Ado\WebAPi_Ado.csproj", "{F6C6C701-B42D-4C2B-A2B6-76416883766E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoBusinessLayer", "AdoBusinessLayer\AdoBusinessLayer.csproj", "{A9F07732-4F8C-498D-9461-8DBCBC3FE569}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdoBusinessLayer", "AdoBusinessLayer\AdoBusinessLayer.csproj", "{A9F07732-4F8C-498D-9461-8DBCBC3FE569}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
