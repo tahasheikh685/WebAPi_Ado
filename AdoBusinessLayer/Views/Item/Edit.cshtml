@@ -4,6 +4,117 @@
     ViewData["Title"] = "Edit";
 }
 
+<style>
+    /* Styling for the container */
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Styling for headings */
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    /* Styling for form elements */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+
+    /* Styling for validation messages */
+    .text-danger {
+        color: #dc3545;
+    }
+
+    /* Styling for the back link */
+    .back-link {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        color: #007bff;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+</style>
+
+<div class="container">
+    <h1>Edit Item</h1>
+
+    <h4>ItemsBL</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Id" class="control-label">ID</label>
+                    <input asp-for="Id" class="form-control" />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">Name</label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label">Description</label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label">Price</label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+
+@*@model AdoBusinessLayer.Models.ItemsBL
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
 <h1>Edit</h1>
 
 <h4>ItemsBL</h4>
@@ -46,3 +157,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+*@

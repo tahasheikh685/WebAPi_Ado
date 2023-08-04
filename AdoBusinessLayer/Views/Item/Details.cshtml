@@ -4,38 +4,73 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<style>
+    /* Styling for the container */
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-<div>
-    <h4>ItemsBL</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
+    /* Styling for the headings */
+    h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    /* Styling for the definition list */
+    dl.row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+    }
+
+    dt.col-sm-2 {
+        font-weight: bold;
+    }
+
+    /* Styling for the back link */
+    .back-link {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        color: #007bff;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    .back-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="container">
+    <h1>Item Details</h1>
+
+    <div>
+        <dl class="row">
+            <dt class="col-sm-2">ID</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Id)</dd>
+            <dt class="col-sm-2">Name</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Name)</dd>
+            <dt class="col-sm-2">Description</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Description)</dd>
+            <dt class="col-sm-2">Price</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Price)</dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
 </div>
-<div>
-   <a asp-action="Index">Back to List</a>
-</div>
+
+
+

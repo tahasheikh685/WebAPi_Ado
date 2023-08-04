@@ -4,41 +4,108 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<style>
+    /* Styling for the container */
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-<h4>ItemsBL</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary mt-2" />
-            </div>
-        </form>
+    /* Styling for headings */
+    h1 {
+        font-size: 24px;
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    /* Styling for form */
+    form {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    /* Styling for validation messages */
+    .text-danger {
+        color: #dc3545;
+    }
+
+    /* Styling for the back link */
+    .back-link {
+        display: block;
+        margin-top: 30px;
+        text-align: center;
+        color: #007bff;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+</style>
+
+<h1 class="text-center mt-4">Create Item</h1>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">Name:</label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label">Description:</label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label">Price:</label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group text-center">
+                    <input type="submit" value="Create" class="btn btn-primary mt-2" />
+                    <a asp-action="Index" class="btn btn-secondary mt-2">Back to List</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
+    
+
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
