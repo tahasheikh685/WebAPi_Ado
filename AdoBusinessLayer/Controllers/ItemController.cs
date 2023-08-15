@@ -75,6 +75,31 @@ namespace AdoBusinessLayer.Controllers
             return View(item);
         }
 
+        [HttpPost]
+        public IActionResult DeleteSelected(int[] ids)
+        {
+            try
+            {
+                // Delete the selected items by their IDs
+                // Here, you can use your business layer or data access layer to perform the deletion.
+                // For demonstration purposes, I'll just show a simple example of deleting the items.
+
+                // In your actual implementation, replace this with the logic to delete the items.
+                // For example, you can use your business layer's DeleteItem method to delete each item.
+                foreach (var id in ids)
+                {
+                    // Call your business layer's DeleteItem method here
+                    // Example: _itemsBusinessLayer.DeleteItem(id);
+                }
+
+                return Ok(); // Return a success response to the client
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that may occur during deletion
+                return BadRequest(ex.Message); // Return a bad request response to the client with the error message
+            }
+        }
     }
 
 

@@ -13,7 +13,7 @@ namespace WebAPi_Ado.DataAccessLayer
             _config = configuration;
         }
         //Get All Items
-        public async Task<List<Item>> GetItems()
+        public List<Item> GetItems()
         {
             List<Item> items = new List<Item>();
 
@@ -46,7 +46,7 @@ namespace WebAPi_Ado.DataAccessLayer
 
         //Get Items by Id
         
-        public async Task<Item> GetItems(int id)
+        public Item GetItems(int id)
         {
             Item item = null;
 
@@ -78,7 +78,7 @@ namespace WebAPi_Ado.DataAccessLayer
 
 
         // Add Items
-        public async Task<int> AddItem(Item par)
+        public int AddItem(Item par)
         {
             try
             {
@@ -92,7 +92,7 @@ namespace WebAPi_Ado.DataAccessLayer
                     cmd.Parameters.AddWithValue("@Price", par.Price);
 
                     conn.Open();
-                    int rowsaffected= await cmd.ExecuteNonQueryAsync();
+                    int rowsaffected= cmd.ExecuteNonQuery();
                     return rowsaffected;
                 }
 
@@ -106,7 +106,7 @@ namespace WebAPi_Ado.DataAccessLayer
 
         //Update Item
         
-        public async Task<int> UpdateItems(Item updatedItem)
+        public int UpdateItems(Item updatedItem)
         {
             try
             {
@@ -121,7 +121,7 @@ namespace WebAPi_Ado.DataAccessLayer
                     cmd.Parameters.AddWithValue("@Price", updatedItem.Price);
 
                     conn.Open();
-                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+                    int rowsAffected = cmd.ExecuteNonQuery();
                     return rowsAffected;
                     
                 }
@@ -133,8 +133,8 @@ namespace WebAPi_Ado.DataAccessLayer
         }
 
         //Delete Items
-        
-        public async Task<int> DeleteItem(int id)
+
+        public int DeleteItem(int id)
         {
             try
             {
@@ -146,7 +146,7 @@ namespace WebAPi_Ado.DataAccessLayer
                     cmd.Parameters.AddWithValue("@Id", id);
 
                     conn.Open();
-                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+                    int rowsAffected = cmd.ExecuteNonQuery();
 
                     return rowsAffected;
                 }
@@ -156,6 +156,9 @@ namespace WebAPi_Ado.DataAccessLayer
                 throw ex;
             }
         }
+
+
+
 
 
     }

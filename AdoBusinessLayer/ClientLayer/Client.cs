@@ -12,7 +12,7 @@ namespace AdoBusinessLayer.ClientLayer
         private readonly HttpClient _httpClient;
         public Client()
         {
-            _baseAddress = new Uri("https://localhost:7180/api/Items/");
+            _baseAddress = new Uri("ASPNETCORE_APIURL");
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = _baseAddress;
         }
