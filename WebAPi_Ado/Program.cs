@@ -17,7 +17,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddControllers().AddFluentValidation(c => c.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly()));
 
-var logFilePath = Path.Combine(builder.Environment.ContentRootPath, "Log/application.log");
+var logFilePath = Path.Combine(builder.Environment.ContentRootPath, "/application.log");
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .WriteTo.File(logFilePath, rollingInterval: RollingInterval.Day) // Specify file path and rolling interval
