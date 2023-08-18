@@ -10,9 +10,9 @@ namespace AdoBusinessLayer.ClientLayer
     {
         private readonly Uri _baseAddress;
         private readonly HttpClient _httpClient;
-        public Client()
+        public Client(IConfiguration configuration)
         {
-            _baseAddress = new Uri("ASPNETCORE_APIURL");
+            _baseAddress = new Uri(configuration["URLs:APIURL"]);
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = _baseAddress;
         }

@@ -7,9 +7,9 @@ namespace AdoBusinessLayer.BusinessLayer
     public class BusinessClass
     {
         private readonly Client _client;
-        public BusinessClass()
+        public BusinessClass(IConfiguration configuration)
         {
-            _client = new Client();
+            _client = new Client(configuration);
         }
 
         public List<ItemsBL> GetALLRecords() 

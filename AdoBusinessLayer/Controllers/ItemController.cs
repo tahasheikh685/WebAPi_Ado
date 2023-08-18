@@ -13,9 +13,9 @@ namespace AdoBusinessLayer.Controllers
     public class ItemController : Controller
     {
         private readonly BusinessClass _business;
-        public ItemController()
+        public ItemController(IConfiguration configuration)
         {
-            _business = new BusinessClass();
+            _business = new BusinessClass(configuration);
         }
 
         [HttpGet]
