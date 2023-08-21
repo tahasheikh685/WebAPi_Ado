@@ -10,7 +10,20 @@ internal class Program
         // Add services to the container.
         builder.Services.AddControllersWithViews();
         builder.Services.AddControllers().AddFluentValidation(c => c.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly()));
+
+
+        // Configuration setup
+        IConfiguration configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+        // Pass the configuration to the client layer
+        builder.Services.AddSingleton(configuration);
+
         var app = builder.Build();
+
+
 
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
